@@ -1,0 +1,95 @@
+---
+import Basiclayout from "../layouts/BasicLayout.astro";
+import Homeimg from "../assets/homeicon.png";
+import AppleStoreimgXL from "../assets/AppleStoreXL.png";
+import AppleStoreMockup1 from "../assets/AppleStoreMockup1.png";
+import AppleStoreMockup2 from "../assets/AppleStoreMockup2.png";
+import Figmaimg from "../assets/figma.png";
+import WPimg from "../assets/wp.png";
+import Arrow from "../assets/Arrow.png";
+---
+
+<Basiclayout>
+  <section class="flex flex-col gap-16 p-4 lg:items-center lg:p-8">
+    <header class="">
+      <div class="flex items-center justify-between lg:justify-start lg:gap-4">
+        <p class="text-xl">
+          Type de travail: <span class="font-bold">Scolaire</span>
+        </p>
+        <a href="/portfolio">
+          <img src={Homeimg.src} alt="" />
+        </a>
+      </div>
+      <p class="text-4xl font-bold">Apple Store</p>
+    </header>
+
+    <div
+      class="flex flex-col items-center gap-8 lg:flex-row lg:justify-between lg:gap-16"
+    >
+      <div class="flex flex-col gap-8 lg:w-xl">
+        <div class="carousel flex w-full snap-x gap-4 overflow-x-auto">
+          <img src={AppleStoreimgXL.src} alt="" />
+          <img src={AppleStoreMockup1.src} alt="" />
+          <img src={AppleStoreMockup2.src} alt="" />
+        </div>
+        <div class="flex justify-between">
+          <a href="javascript:void(0);" id="prev">
+            <img src={Arrow.src} alt="" class="scale-75 rotate-180" />
+          </a>
+          <a href="javascript:void(0);" id="next">
+            <img src={Arrow.src} alt="" class="scale-75" />
+          </a>
+        </div>
+      </div>
+      <p class="text-lg lg:w-xl lg:pr-30">
+        Pour ce projet, nous avons commencé par une phase de recherches
+        utilisateur approfondies. Cette étape nous a permis de mieux comprendre
+        les besoins et attentes des utilisateurs grâce à la création de
+        personas, à l'élaboration de wireframes, ainsi qu'à la réalisation de
+        userflows. Ces outils ont servi de base pour concevoir une expérience
+        utilisateur optimale et adaptée au contexte du click & collect.
+        <br /> Ensuite, nous sommes passés à la phase de prototypage et de maquettage,
+        où nous avons affiné les détails visuels et fonctionnels du site. Chaque
+        élément a été pensé pour guider l'utilisateur de manière intuitive tout au
+        long de son parcours.
+        <br /> Enfin, nous avons réalisé le site sur WordPress, où nous devions créer
+        une boutique en ligne. C'était la première fois que nous travaillions sur
+        ce type de projet, et il fallait intégrer différents produits personnalisables.
+        L'objectif principal était de créer un parcours utilisateur fluide et efficace,
+        permettant aux clients de naviguer facilement et de finaliser leurs commandes
+        en toute simplicité.
+        <br /> Ce projet a été un travail de groupe réalisé à deux personnes. Il
+        a été une opportunité enrichissante pour appliquer des méthodologies centrées
+        sur l'utilisateur, tout en combinant design, prototypage et développement
+        technique pour aboutir à une solution complète et fonctionnelle.
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center gap-8 lg:w-1/2 lg:gap-8">
+      <div class="flex flex-col items-center gap-4 rounded border p-4">
+        <p class="text-xl">Technologies utilisées :</p>
+        <ul class="flex gap-8">
+          <li><img src={Figmaimg.src} alt="" /></li>
+          <li><img src={WPimg.src} alt="" /></li>
+        </ul>
+      </div>
+      <a
+        target="_blank"
+        href="https://sae07.mmidev.fr"
+        class="text-dark-blue text-shadow-md border-dark-blue rounded-2xl border-1 bg-white p-5 text-2xl shadow-lg"
+        >Visitez l'application</a
+      >
+    </div>
+  </section>
+</Basiclayout>
+<script>
+  document.getElementById("prev").addEventListener("click", function () {
+    const carousel = document.querySelector(".carousel");
+    carousel.scrollBy({ left: -carousel.clientWidth, behavior: "smooth" });
+  });
+
+  document.getElementById("next").addEventListener("click", function () {
+    const carousel = document.querySelector(".carousel");
+    carousel.scrollBy({ left: carousel.clientWidth, behavior: "smooth" });
+  });
+</script>

@@ -1,0 +1,90 @@
+---
+import Basiclayout from "../layouts/BasicLayout.astro";
+import Homeimg from "../assets/homeicon.png";
+import SmashAppimgXL from "../assets/SmashAppXL.png";
+import SmashAppMockup1 from "../assets/SmashAppMockup1.png";
+import SmashAppMockup2 from "../assets/SmashAppMockup2.png";
+import Figmaimg from "../assets/figma.png";
+import Arrow from "../assets/Arrow.png";
+---
+
+<Basiclayout>
+  <section class="flex flex-col gap-16 p-4 lg:items-center lg:p-8">
+    <header class="">
+      <div class="flex items-center justify-between lg:justify-start lg:gap-4">
+        <p class="text-xl">
+          Type de travail: <span class="font-bold">Scolaire</span>
+        </p>
+        <a href="/portfolio">
+          <img src={Homeimg.src} alt="" />
+        </a>
+      </div>
+      <p class="text-4xl font-bold">Smash Bros App</p>
+    </header>
+
+    <div
+      class="flex flex-col items-center gap-8 lg:flex-row lg:justify-between lg:gap-16"
+    >
+      <div class="flex flex-col gap-8 lg:w-xl">
+        <div class="carousel flex w-full snap-x gap-4 overflow-x-auto">
+          <img src={SmashAppimgXL.src} alt="" />
+          <img src={SmashAppMockup1.src} alt="" />
+          <img src={SmashAppMockup2.src} alt="" />
+        </div>
+        <div class="flex justify-between">
+          <a href="javascript:void(0);" id="prev">
+            <img src={Arrow.src} alt="" class="scale-75 rotate-180" />
+          </a>
+          <a href="javascript:void(0);" id="next">
+            <img src={Arrow.src} alt="" class="scale-75" />
+          </a>
+        </div>
+      </div>
+      <p class="text-lg lg:w-xl lg:pr-30">
+        Pour un projet scolaire, il nous a été demandé de créer une application
+        fictive qui servirait dans l'univers de notre choix. L'objectif était de
+        réaliser un prototype fonctionnel contenant au minimum 7 écrans
+        différents.
+        <br /> J'ai donc choisi de créer une application de la série de jeux vidéo
+        Super Smash Bros en y intégrant le concept de pari en ligne. L'application
+        permet de parier sur les matchs en ligne de la communauté de joueurs de Super
+        Smash Bros.
+        <br /> Pour la réaliser, je me suis servi des assets officiels du jeu et
+        j'ai utilisé Figma pour la création du prototype. Ce projet m'a appris beaucoup
+        de choses en termes d'animation sur Figma, par exemple des carrousels automatiques,
+        des pop-up, des transitions entre les pages, etc.
+        <br /> À l'issue de ce projet, j'ai réalisé que sa construction n'était pas
+        optimale en termes d'utilisation de l'outil Figma. J'aurais dû plus me servir
+        de l'autolayout pour faciliter la création des pages et des composants. Mais
+        également des variables pour les tailles de textes, les arrondis, etc.
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center gap-8 lg:w-1/2 lg:gap-8">
+      <div class="flex flex-col items-center gap-4 rounded border p-4">
+        <p class="text-xl">Technologies utilisées :</p>
+        <ul class="flex gap-2">
+          <li><img src={Figmaimg.src} alt="" /></li>
+          <li><img src="" alt="" /></li>
+        </ul>
+      </div>
+      <a
+        target="_blank"
+        href="https://www.figma.com/proto/PhUXpPks4LxRu92b8k2QQv/Armand-VINCENT-Smash-Bros-(Copy)?page-id=273%3A4261&node-id=271-22920&node-type=frame&viewport=1371%2C722%2C0.28&t=htd4Wg2MaFaTrFb3-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=271%3A22920&show-proto-sidebar=1"
+        class="text-dark-blue text-shadow-md border-dark-blue rounded-2xl border-1 bg-white p-5 text-2xl shadow-lg"
+        >Visitez l'application</a
+      >
+    </div>
+  </section>
+</Basiclayout>
+<script>
+  document.getElementById("prev").addEventListener("click", function () {
+    const carousel = document.querySelector(".carousel");
+    carousel.scrollBy({ left: -carousel.clientWidth, behavior: "smooth" });
+  });
+
+  document.getElementById("next").addEventListener("click", function () {
+    const carousel = document.querySelector(".carousel");
+    carousel.scrollBy({ left: carousel.clientWidth, behavior: "smooth" });
+  });
+</script>

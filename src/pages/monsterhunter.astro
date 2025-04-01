@@ -1,0 +1,96 @@
+---
+import Basiclayout from "../layouts/BasicLayout.astro";
+import Homeimg from "../assets/homeicon.png";
+import MHimgXL from "../assets/MHXL.png";
+import MHMockup1 from "../assets/MHMockup1.png";
+import MHMockup2 from "../assets/MHMockup2.png";
+import Figmaimg from "../assets/figma.png";
+import Arrow from "../assets/Arrow.png";
+---
+
+<Basiclayout>
+  <section class="flex flex-col gap-16 p-4 lg:items-center lg:p-8">
+    <header class="">
+      <div class="flex items-center justify-between lg:justify-start lg:gap-4">
+        <p class="text-xl">
+          Type de travail: <span class="font-bold">Personnel</span>
+        </p>
+        <a href="/portfolio">
+          <img src={Homeimg.src} alt="" />
+        </a>
+      </div>
+      <p class="text-4xl font-bold">Monster Hunter Wild</p>
+    </header>
+
+    <div
+      class="flex flex-col items-center gap-8 lg:flex-row lg:justify-between lg:gap-16"
+    >
+      <div class="flex flex-col gap-8 lg:w-xl">
+        <div class="carousel flex w-full snap-x gap-4 overflow-x-auto">
+          <img src={MHimgXL.src} alt="" />
+          <img src={MHMockup1.src} alt="" />
+          <img src={MHMockup2.src} alt="" />
+        </div>
+        <div class="flex justify-between">
+          <a href="javascript:void(0);" id="prev">
+            <img src={Arrow.src} alt="" class="scale-75 rotate-180" />
+          </a>
+          <a href="javascript:void(0);" id="next">
+            <img src={Arrow.src} alt="" class="scale-75" />
+          </a>
+        </div>
+      </div>
+      <p class="text-lg lg:w-xl lg:pr-30">
+        Ce projet est un travail personnel que j'ai réalisé par passion pour la
+        licence Monster Hunter et en prévision de la sortie du prochain jeu. En
+        explorant, j'ai découvert qu'il existait un site officiel où je pouvais
+        récupérer les assets nécessaires. J'en ai profité pour développer mes
+        compétences sur Figma, en mettant particulièrement l'accent sur
+        l'utilisation réelle de l'Auto Layout dans le cadre du prototypage.
+
+        <br /> Pour la mise en page, j'ai opté pour une structure claire et centrée
+        afin de mettre en valeur les visuels et de faciliter la navigation. Les éléments
+        sont espacés de manière uniforme pour offrir une expérience utilisateur agréable
+        et intuitive. Les couleurs utilisées s'inspirent de l'univers de Monster
+        Hunter, avec des tons naturels et des contrastes marqués pour refléter l'ambiance
+        épique et immersive de la licence. J'ai également choisi d'intégrer un carrousel
+        interactif pour présenter les maquettes, ce qui permet de simuler une navigation
+        fluide et moderne, tout en mettant en avant les différents écrans de l'application.
+        <br /> Cette approche m'a permis de travailler sur des interactions dynamiques
+        et de renforcer mes compétences en prototypage interactif. L'objectif était
+        également de créer un mix entre un site web pour la partie principale et
+        un jeu vidéo avec la partie sociale qui se trouve à droite de l'interface.
+        Cette combinaison permet de capturer l'essence de l'univers Monster Hunter
+        tout en offrant une expérience utilisateur immersive et engageante. Cette
+        expérience a été enrichissante et m'a permis de combiner ma passion pour
+        le design et l'univers de Monster Hunter.
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center gap-8 lg:w-1/2 lg:gap-8">
+      <div class="flex flex-col items-center gap-4 rounded border p-4">
+        <p class="text-xl">Technologie utilisées :</p>
+        <ul class="flex gap-8">
+          <li><img src={Figmaimg.src} alt="" /></li>
+        </ul>
+      </div>
+      <a
+        target="_blank"
+        href="https://www.figma.com/proto/OfvpbXXs774Ly32eGuIdML/futuristic?page-id=226%3A677&node-id=226-678&viewport=676%2C238%2C0.14&t=aYFlt3FFGYhVFOeM-1&scaling=min-zoom&content-scaling=fixed"
+        class="text-dark-blue text-shadow-md border-dark-blue rounded-2xl border-1 bg-white p-5 text-2xl shadow-lg"
+        >Visitez l'application</a
+      >
+    </div>
+  </section>
+</Basiclayout>
+<script>
+  document.getElementById("prev").addEventListener("click", function () {
+    const carousel = document.querySelector(".carousel");
+    carousel.scrollBy({ left: -carousel.clientWidth, behavior: "smooth" });
+  });
+
+  document.getElementById("next").addEventListener("click", function () {
+    const carousel = document.querySelector(".carousel");
+    carousel.scrollBy({ left: carousel.clientWidth, behavior: "smooth" });
+  });
+</script>

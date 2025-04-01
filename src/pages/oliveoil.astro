@@ -1,0 +1,88 @@
+---
+import Basiclayout from "../layouts/BasicLayout.astro";
+import Homeimg from "../assets/homeicon.png";
+import OliveOilimgXL from "../assets/OliveOilXL.png";
+import OliveOilMockup1 from "../assets/OliveOilMockup1.png";
+import OliveOilMockup2 from "../assets/OliveOilMockup2.png";
+import Figmaimg from "../assets/figma.png";
+import PSimg from "../assets/ps.png";
+import Arrow from "../assets/Arrow.png";
+---
+
+<Basiclayout>
+  <section class="flex flex-col gap-16 p-4 lg:items-center lg:p-8">
+    <header class="">
+      <div class="flex items-center justify-between lg:justify-start lg:gap-4">
+        <p class="text-xl">
+          Type de travail: <span class="font-bold">Scolaire</span>
+        </p>
+        <a href="/portfolio">
+          <img src={Homeimg.src} alt="" />
+        </a>
+      </div>
+      <p class="text-4xl font-bold">Site One Page Olive Oil</p>
+    </header>
+
+    <div
+      class="flex flex-col items-center gap-8 lg:flex-row lg:justify-between lg:gap-16"
+    >
+      <div class="flex flex-col gap-8 lg:w-xl">
+        <div class="carousel flex w-full snap-x gap-4 overflow-x-auto">
+          <img src={OliveOilimgXL.src} alt="" />
+          <img src={OliveOilMockup1.src} alt="" />
+          <img src={OliveOilMockup2.src} alt="" />
+        </div>
+        <div class="flex justify-between">
+          <a href="javascript:void(0);" id="prev">
+            <img src={Arrow.src} alt="" class="scale-75 rotate-180" />
+          </a>
+          <a href="javascript:void(0);" id="next">
+            <img src={Arrow.src} alt="" class="scale-75" />
+          </a>
+        </div>
+      </div>
+      <p class="text-lg lg:w-xl lg:pr-30">
+        Pour un projet d'école, il nous a été demandé de créer une landing page
+        pour une marque premium d'huile d'olive. L'objectif était de réaliser un
+        site contenant au minimum 4 sections différentes.
+        <br /> J'ai donc choisi de concevoir une page mettant en avant le caractère
+        haut de gamme de la marque, en intégrant des sections innovantes et visuellement
+        attractives. Chaque section a été pensée pour refléter l'élégance et la qualité
+        du produit.
+        <br /> Pour la réalisation, j'ai utilisé des outils de design modernes et
+        me suis concentré sur l'expérience utilisateur, en intégrant des éléments
+        interactifs comme des carrousels et des animations fluides.
+        <br /> Ce projet m'a permis de développer mes compétences en design et en
+        structuration de contenu, tout en explorant des approches créatives pour
+        rendre la page plus engageante et mémorable.
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center gap-8 lg:w-1/2 lg:gap-8">
+      <div class="flex flex-col items-center gap-4 rounded border p-4">
+        <p class="text-xl">Technologies utilisées :</p>
+        <ul class="flex gap-8">
+          <li><img src={Figmaimg.src} alt="" /></li>
+          <li><img src={PSimg.src} alt="" /></li>
+        </ul>
+      </div>
+      <a
+        target="_blank"
+        href="https://www.figma.com/proto/UKmxBhCHPB9ZiV3Xz3kbgO/Armand-VINCENT---Olive-OIL?page-id=2001%3A35&node-id=2081-508&node-type=frame&viewport=866%2C860%2C0.11&t=bBd9H4zgPTHvYIhn-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2081%3A508"
+        class="text-dark-blue text-shadow-md border-dark-blue rounded-2xl border-1 bg-white p-5 text-2xl shadow-lg"
+        >Visitez l'application</a
+      >
+    </div>
+  </section>
+</Basiclayout>
+<script>
+  document.getElementById("prev").addEventListener("click", function () {
+    const carousel = document.querySelector(".carousel");
+    carousel.scrollBy({ left: -carousel.clientWidth, behavior: "smooth" });
+  });
+
+  document.getElementById("next").addEventListener("click", function () {
+    const carousel = document.querySelector(".carousel");
+    carousel.scrollBy({ left: carousel.clientWidth, behavior: "smooth" });
+  });
+</script>

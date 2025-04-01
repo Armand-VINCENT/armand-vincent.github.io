@@ -1,0 +1,31 @@
+---
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+const works = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BasicLayout>
+  <section>
+    <ul>
+      {
+        works.map((work) => (
+          <li>
+            <a href={`/blog/${work.id}/`}>
+              <img width={720} height={360} src={work.data.heroImage} alt="" />
+              <h4 class="title">{work.data.title}</h4>
+              <p class="date">
+                <FormattedDate date={work.data.pubDate} />
+              </p>
+              <p>{work.data.description}</p>
+              <p>{work.data.auteur}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BasicLayout>

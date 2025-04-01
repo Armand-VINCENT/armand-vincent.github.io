@@ -1,0 +1,33 @@
+---
+import BasicLayout from "../layouts/BasicLayout.astro";
+
+const mesPizza = {
+  titre: "hello pizza",
+  description: "la pizza est un plat italien",
+};
+
+import pizzas from "../content/data/pizzas.json";
+---
+
+<BasicLayout>
+  <h1>{mesPizza.titre}</h1>
+  <p>{mesPizza.description}</p>
+
+  <ul>
+    <h1 class="text-center text-4xl font-bold">Pizzas</h1>
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {
+        pizzas.map((data) => (
+          <div class="rounded-lg bg-gray-100 p-4 shadow-lg">
+            <h2 class="text-xl font-bold">{data.pizzaName}</h2>
+            <ul>
+              {data.ingredients.map((ingredient) => (
+                <li>{ingredient}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </ul>
+</BasicLayout>
